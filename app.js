@@ -1,6 +1,6 @@
 import express from 'express'
 import session from 'express-session'
-
+import moment from 'moment-timezone'
 
 const app =express();
  app.use(
@@ -34,8 +34,8 @@ const app =express();
 
  app.get('/estado-sesion', ( request,response)=>{
     if(request.session.inicio){
-        constinicio = request.session.inicio;
-        const ultimoAccseso = request.session.ultimoAccseso;
+        const inicio = new Date (request.session.inicio);
+        const ultimoAccseso = new Date (request.session.ultimoAccseso);
         const ahora = new Date ();
 
         //calcular la aun tiguedad
@@ -44,12 +44,16 @@ const app =express();
         const horas  = Math.floor(antiguedadMs / ( 1000*60*60));
         const minutos = Math.floor((antiguedadMs % ( 1000*60*60)) / (1000*60));
         const  segundos = Math.floor((antiguedadMs % (1000*60))/ 1000);
+        
 
+        const inicioCDMX = moment(inicio).tz('America/Mexico_City').format('YYYY-MM-DD HH:mm:ss');
+        const ultimoAccesoCDMX = moment(ultimoAcceso).tz('America/Mexico_City').format('YYYY-MM-DD HH:mm:ss');
+        
         response.json({
             mensaje:'esdado de sesion',
             sesionID: request.sessionID,
-            inicio: inicio.toISOString(),
-            ultimoAccseso: ultimoAccseso.toISOString(),
+            inicio: inicioCDMX,
+            ultimoAccseso: ultimoAccesoCDMX,
             antiguedad: `${horas} horas, ${minutos} minutos, ${segundos} segundos`
         });
     }else{

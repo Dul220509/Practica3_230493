@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Dul220509/Practica3_230493#readme",
   "dependencies": {
     "express": "^4.21.2",
-    "express-session": "^1.18.1"
+    "express-session": "^1.18.1",
+    "moment-timezone": "^0.5.46"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "mx.edu.utxj.ti.awi4.json.Practica3",
+  "version": "1.0.0",
+  "description": "'Manejo de sesion en Nodejs y express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dul220509/Practica3_230493.git"
+  },
+  "author": "T.S.U. Dulce Yadira Salvador Antonio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dul220509/Practica3_230493/issues"
+  },
+  "homepage": "https://github.com/Dul220509/Practica3_230493#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "moment-timezone": "^0.5.46"
+  }
+}
